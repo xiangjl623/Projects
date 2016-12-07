@@ -2,24 +2,21 @@
 # -*- coding:utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import os
+from enum import Enum
 
-class BrowerFactory:
+class BrowserType(Enum):
+    ie = 1
+    chrome = 2
+    firefox = 3
+
+class BrowserFactory(object):
     @staticmethod
-    def createBrower(type, driverPath):
-        if type.lower() == "ie":
-            #oschromedriver = "C:\Program Files\Internet Explorer\IEDriverServer.exe"
-            os.environ["brower.ie.brower"] = driverPath
+    def createBrowser(browerType, driverPath):
+        if browerType == BrowserType.ie:
+            #"IEDriverServer.exe PATH"
             return webdriver.Ie(driverPath)
-        elif type.lower() == "chrome":
-            #chromedriver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
-            os.environ["brower.chrome.brower"] = driverPath
+        elif browerType ==  BrowserType.chrome:
+            # "hromedriver.exe PATH"
             return webdriver.Chrome(driverPath)
-        elif type.lower() == "firefox":
+        elif browerType == BrowserType.firefox:
             return webdriver.Firefox()
-
-
-
-
-
-#
