@@ -1,0 +1,18 @@
+<config>
+    <browserconfig>
+        <name>firefox</name>
+        <driverPath></driverPath>
+    </browserconfig>
+    <actions>
+        <action>
+            <type>URL</type>
+            <url>https://www.baidu.com</url>
+        </action>
+        <action>
+            <type>Element</type>
+            <by>id</by>
+            <value>kw</value>
+            <key>123</key>
+        </action>
+    </actions>
+</config>

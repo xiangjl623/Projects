@@ -9,8 +9,8 @@ class LogConfig(object):
         AppPath = os.path.abspath(sys.argv[0])
         self.AppDir = os.path.dirname(AppPath) + "//"
         datetimeNow = datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")
-        fileName = self.AppDir + "logFile//" + datetimeNow + ".log"
-        logging.basicConfig(level=logging.DEBUG,
+        fileName = self.AppDir + "run.log"
+        logging.basicConfig(level=logging.INFO,
                  format = "%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s",
                  datefmt = "%Y%m%d_%H:%M:%S",
                  filename = fileName,

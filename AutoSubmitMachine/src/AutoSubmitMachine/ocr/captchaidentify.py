@@ -106,7 +106,9 @@ def main():
     #print tools[0].image_to_string(Image.open('D:/234.png'),lang='chi_sim')
 
 if __name__ == '__main__':
-    main()
+    #()
+    import os
+    print os.listdir("e://")
 
 
 
