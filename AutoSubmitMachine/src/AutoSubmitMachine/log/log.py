@@ -5,12 +5,12 @@ import logging
 import time,datetime
 
 class LogConfig(object):
-    def __init__(self):
+    def __init__(self, level = 0):
         AppPath = os.path.abspath(sys.argv[0])
         self.AppDir = os.path.dirname(AppPath) + "//"
         datetimeNow = datetime.datetime.now().strftime("%Y%m%d_%H_%M_%S")
         fileName = self.AppDir + "run.log"
-        logging.basicConfig(level=logging.INFO,
+        logging.basicConfig(level = level,
                  format = "%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s",
                  datefmt = "%Y%m%d_%H:%M:%S",
                  filename = fileName,

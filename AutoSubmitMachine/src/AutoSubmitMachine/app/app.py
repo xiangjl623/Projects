@@ -3,6 +3,8 @@
 from util.xmlutil import XmlUtil
 from brower.seleniumbrowser import SeleniumBrowser
 from brower.seleniumbrowserfactory import  SeleniumBrowserFactory
+from log.log import LogConfig
+import time
 
 class ActionType(object):
     url = "url"
@@ -20,19 +22,35 @@ class Action(object):
         for child in xmlnode:
            setattr(self, child.tag.lower(), child.text)
     def excute(self, brower):
-        if self.type.lower() == ActionType.url:
-            brower.load(self.url)
-        elif self.type.lower() == ActionType.element:
-            oElement = brower.find_element(self.by, self.value)
-            oElement.clear()
-            oElement.send_keys(self.key)
-            oElement.submit()
+        try:
+            if self.type.lower() == ActionType.url:
+                brower.load(self.url)
+            elif self.type.lower() == ActionType.element:
+                oElement = brower.find_element(self.by, self.value)
+                #print dir(self)
+                if hasattr(self, "child_by") and hasattr(self, "child_value"):
+                    oElement = oElement.find_elemnt(self.child_by, self.child_value)
+                if hasattr(self, "clear"):
+                    oElement.clear()
+                if hasattr(self, "key"):
+                    oElement.send_keys(self.key)
+                if hasattr(self, "click"):
+                    oElement.click()
+                if hasattr(self, "submit"):
+                    oElement.submit()
+                if hasattr(self, "delaytime"):
+                    time.sleep(int(self.delaytime))
+
+        except Exception, e:
+            print Exception, ":", e
 
 class App(object):
     def __init__(self, file):
         doc = XmlUtil.load(file)
         root = doc.getroot()
-        self.BrowserConfig = BrowserConfig(XmlUtil.getSubElement(root, "browserconfig"))
+        if XmlUtil.getSubElement(root, "log") <> None:
+            LogConfig()
+        self.BrowserConfig = BrowserConfig(XmlUtil.getSubElement(root, "browser"))
         self.Actions = []
         ActionsNode = XmlUtil.getSubElement(root, "actions")
         for actionNode in ActionsNode:
@@ -44,4 +62,4 @@ class App(object):
             try:
                 action.excute(browser)
             except Exception,e:
-                print  Exception,":",e
+                print Exception,":",e

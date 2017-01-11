@@ -1,8 +1,8 @@
 <config>
-    <browserconfig>
+    <browser>
         <name>firefox</name>
         <driverPath></driverPath>
-    </browserconfig>
+    </browser>
     <actions>
         <action>
             <type>URL</type>
