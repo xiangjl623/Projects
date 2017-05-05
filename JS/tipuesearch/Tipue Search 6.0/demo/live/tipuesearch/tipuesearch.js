@@ -51,7 +51,8 @@ http://www.tipue.com/search
                {
                     for (var i = 0; i < tipuesearch_pages.length; i++)
                     {
-                         $.get(tipuesearch_pages[i]).done(function(html)                             
+                         //$.get(tipuesearch_pages[i]).done(function(html) 
+                         $.get(urlRoot+tipuesearch_pages[i],function(html, status)						 
                          {
                               var cont = $(set.liveContent, html).text();
                               cont = cont.replace(/\s+/g, ' ');
