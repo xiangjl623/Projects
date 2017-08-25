@@ -2,19 +2,19 @@
 # -*- coding:utf-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from seleniumbrowser import SeleniumBrowser
+from browser.browser import Browser
 
 class BrowserType(object):
-    ie = "ie"
-    chrome = "chrome"
-    firefox = "firefox"
+  ie = "ie"
+  chrome = "chrome"
+  firefox = "firefox"
 
-class SeleniumBrowserFactory(object):
+class BrowserFactory(object):
     @staticmethod
     def openBrowser(browerType, driverPath = None):
         if browerType.lower() == BrowserType.ie: #"IEDriverServer.exe PATH"
-            return SeleniumBrowser(webdriver.Ie(driverPath))
+            return Browser(webdriver.Ie(driverPath))
         elif browerType.lower() == BrowserType.chrome: # "chromedriver.exe PATH"
-            return SeleniumBrowser(webdriver.Chrome(driverPath))
+            return Browser(webdriver.Chrome(driverPath))
         elif browerType.lower() == BrowserType.firefox:
-            return SeleniumBrowser(webdriver.Firefox())
+            return Browser(webdriver.Firefox())

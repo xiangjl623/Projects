@@ -1,8 +1,8 @@
 #oding = utf-8
 # -*- coding:utf-8 -*-
-from util.xmlutil import XmlUtil
-from brower.seleniumbrowser import SeleniumBrowser
-from brower.seleniumbrowserfactory import  SeleniumBrowserFactory
+from utils.xmlutil import XmlUtil
+from browser.browser import Browser
+from browser.browserfactory import BrowserFactory
 from log.log import LogConfig
 import time
 
@@ -40,15 +40,14 @@ class Action(object):
                     oElement.submit()
                 if hasattr(self, "delaytime"):
                     time.sleep(int(self.delaytime))
-
-        except Exception, e:
-            print Exception, ":", e
+        except Exception as e:
+            print(Exception + ":" + e)
 
 class App(object):
     def __init__(self, file):
         doc = XmlUtil.load(file)
         root = doc.getroot()
-        if XmlUtil.getSubElement(root, "log") <> None:
+        if XmlUtil.getSubElement(root, "log") != None:
             LogConfig()
         self.BrowserConfig = BrowserConfig(XmlUtil.getSubElement(root, "browser"))
         self.Actions = []
@@ -57,9 +56,9 @@ class App(object):
             self.Actions.append(Action(actionNode))
 
     def excute(self):
-        browser = SeleniumBrowserFactory.openBrowser(self.BrowserConfig.name, self.BrowserConfig.driverpath)
+        browser = BrowserFactory.openBrowser(self.BrowserConfig.name, self.BrowserConfig.driverpath)
         for action in self.Actions:
             try:
                 action.excute(browser)
-            except Exception,e:
-                print Exception,":",e
+            except Exception as e:
+                print(Exception + ":" + e)
