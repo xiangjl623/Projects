@@ -14,14 +14,17 @@ class XmlUtil(object):
     # xml.etree.ElementTree SubElement需要传入属性 不好用
     def getSubElement(parent, tag):
         try:
-           #print dir(parent.iter(tag))
-           return parent.iter(tag).next()
-        except:
-           return None
+             #print dir(parent.iter(tag))
+             print(parent.iter(tag).text)
+             return parent.iter(tag)
+        except Exception as e:
+             print(Exception, ":", e)
+             return  None
 
     @staticmethod
     def getSubElementText(parent, tag):
         try:
-           return parent.iter(tag).next().text
-        except:
-           return None
+             return parent.iter(tag).text
+        except Exception as e:
+             print(Exception, ":", e)
+             return  None

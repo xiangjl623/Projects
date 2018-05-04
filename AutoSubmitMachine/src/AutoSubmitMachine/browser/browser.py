@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 
-class SeleniumBrowser(object):
+class Browser(object):
    def __init__(self, driver):
        self.driver = driver
 
@@ -45,15 +45,15 @@ class SeleniumBrowser(object):
             return self.driver.find_element_by_id(value)
         elif by == By.XPATH:
             return self.driver.find_element_by_xpath(value)
-        elif by  == By.LINK_TEXT:
+        elif by == By.LINK_TEXT:
             return self.driver.find_element_by_link_text(value)
-        elif by  == By.PARTIAL_LINK_TEXT:
+        elif by == By.PARTIAL_LINK_TEXT:
             return self.driver.find_element_by_partial_link_text(value)
-        elif by  == By.NAME:
+        elif by == By.NAME:
             return self.driver.find_element_by_name(value)
-        elif by  == By.TAG_NAME:
+        elif by == By.TAG_NAME:
             return self.driver.find_element_by_tag_name(value)
-        elif by  == By.CSS_SELECTOR:
+        elif by == By.CSS_SELECTOR:
             return self.driver.find_element_by_css_selector(value)
-        elif by  == By.CLASS_NAME:
+        elif by == By.CLASS_NAME:
             return self.driver.find_element_by_class_name(value)
