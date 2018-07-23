@@ -23,4 +23,5 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('trans/', include('trans.urls')),  # 通过?传递参数进行处理
+    path('goods/', include('goods.urls'))
 ]
