@@ -4,7 +4,7 @@ from goods.models import Goods
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'goods_index.html')
 
 def searchall(request):
     goods_list = Goods.objects.all()
