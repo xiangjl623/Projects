@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User  # 使用Django自带的用户模型
+from django.db.models import Q  # 帮助完成查询条件设置
+from django.views.generic import ListView, DetailView
 # Create your models here.
 
 class Category(models.Model):  # 文章类别
@@ -50,3 +52,21 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+
+class Search(ListView):
+    model = Article
+    template_name = 'search.html'
+    paginate_by = 5
+
+    def get_queryset(self):
+        key = self.request.GET['key']  # 获取查询关键字
+        if key:
+            return Article.objects.filter(Q(title__icontains=key) | Q(content__icontains=key)).order_by('-id')
+            # 查询标题或者内容包含关键字的数据对象
+        else:
+            return None
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['key'] = self.request.GET['key']  # 获取关键字存入传入模板的数据中
+        return context
