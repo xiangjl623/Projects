@@ -21,6 +21,7 @@ y = tf.matmul(x, w1)
 
 #2定义损失函数及反向传播方法。
 # 定义损失函数使得预测少了的损失大，于是模型应该偏向多的方向预测。
+loss_mse = tf.reduce_mean(tf.square(y_ - y))
 loss = tf.reduce_sum(tf.where(tf.greater(y, y_), (y - y_)*COST, (y_ - y)*PROFIT))
 train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss)
 
@@ -28,12 +29,13 @@ train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss)
 with tf.Session() as sess:
     init_op = tf.global_variables_initializer()
     sess.run(init_op)
-    STEPS = 3000
+    STEPS = 20000
     for i in range(STEPS):
         start = (i*BATCH_SIZE) % 32
         end = (i*BATCH_SIZE) % 32 + BATCH_SIZE
         sess.run(train_step, feed_dict={x: X[start:end], y_: Y[start:end]})
         if i % 500 == 0:
-            print "After %d training steps, w1 is: " % (i)
-            print sess.run(w1), "\n"
-    print "Final w1 is: \n", sess.run(w1)
+            print("After %d training steps, w1 is: " % (i))
+            print(sess.run(w1), "\n")
+    print("Final w1 is: \n", sess.run(w1))
+    print(sess.run(loss_mse, feed_dict={x: X, y_: Y}))

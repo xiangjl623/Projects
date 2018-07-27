@@ -28,12 +28,12 @@ train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss)
 with tf.Session() as sess:
     init_op = tf.global_variables_initializer()
     sess.run(init_op)
-    STEPS = 3000
+    STEPS = 20000
     for i in range(STEPS):
         start = (i*BATCH_SIZE) % 32
         end = (i*BATCH_SIZE) % 32 + BATCH_SIZE
         sess.run(train_step, feed_dict={x: X[start:end], y_: Y[start:end]})
         if i % 500 == 0:
-            print "After %d training steps, w1 is: " % (i)
-            print sess.run(w1), "\n"
-    print "Final w1 is: \n", sess.run(w1)
+            print("After %d training steps, w1 is: " % (i))
+            print(sess.run(w1), "\n")
+    print("Final w1 is: \n", sess.run(w1))
