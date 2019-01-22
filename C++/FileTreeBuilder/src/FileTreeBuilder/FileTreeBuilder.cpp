@@ -17,13 +17,13 @@ int GID = 0;
 void Configs::init(wstring file)
 {   
     CIniReader iniReader(file);
-    runMode = iniReader.ReadInteger(L"configs", L"runMode", -1);   
-    removeChars = iniReader.ReadString(L"configs", L"removeChars", L"00");  
-    ignoreFolders = iniReader.ReadString(L"configs", L"ignoreFolders", L"00");
-    ignoreFiles = iniReader.ReadString(L"configs", L"ignoreFiles", L"00");
-    fileTypes = iniReader.ReadString(L"configs", L"fileTypes", L"00");
-    blankFile = iniReader.ReadString(L"configs", L"blankFile", L"00");
-    outputFile = iniReader.ReadString(L"configs", L"outputFile", L"00");
+    runMode = iniReader.ReadInteger(L"configs", L"runMode", 0);   
+    removeChars = iniReader.ReadString(L"configs", L"removeChars", L"0123456789-");  
+    ignoreFolders = iniReader.ReadString(L"configs", L"ignoreFolders", L"");
+    ignoreFiles = iniReader.ReadString(L"configs", L"ignoreFiles", L"index.html index.htm");
+    fileTypes = iniReader.ReadString(L"configs", L"fileTypes", L" .html, .htm");
+    blankFile = iniReader.ReadString(L"configs", L"blankFile", L"");
+    outputFile = iniReader.ReadString(L"configs", L"outputFile", L"setting.js");
 }
 
 FileTreeBuilder::FileTreeBuilder()
@@ -107,18 +107,18 @@ void FileTreeBuilder::getAllFiles(wstring path, int pid, int ppid)
                 if ((configs.fileTypes.find(sSuffix) != -1) && (configs.ignoreFiles.find(sTrim) == -1))
                 {   
                     sTrim = trim(sTrim.substr(0, sTrim.find(sSuffix)));
-                    if ((num == 0) && (sTrim == fileNodeVector[fileNodeVector.size() - 1]->name))
-                    {
-                        fileNodeVector[fileNodeVector.size() - 1]->file = (path + L"/" + sName).substr(basePath.length() + 1);
-                    }
-                    else {
+                    //if ((num == 0) && (sTrim == fileNodeVector[fileNodeVector.size() - 1]->name))
+                    //{
+                    //    fileNodeVector[fileNodeVector.size() - 1]->file = (path + L"/" + sName).substr(basePath.length() + 1);
+                    //}
+                    //else {
                         FileNode* pNode = new FileNode(pid, configs.runMode == 0 ? index : GID, sTrim);
                         pNode->file = (path + L"/" + sName).substr(basePath.length() + 1);
                         wcout << L"******File******" << sName << endl;
                         fileNodeVector.push_back(pNode);
                         index++;
                         GID++;
-                    };    
+                    //};    
                     num++;
                 }     
             }
