@@ -1,0 +1,22 @@
+body {
+	background-color: white;
+	margin:0; padding:0;
+	text-align: center;
+}
+#top{
+  width:100%; 
+  height:104;
+  align:left;
+  background-image:url(../img/tiao.png);
+  background-repeat: repeat-x;
+  text-align:left;	  
+}
+div, p, table, th, td {
+	list-style:none;
+	margin:0; padding:0;
+	color:#333; font-size:12px;
+	font-family:dotum, Verdana, Arial, Helvetica, AppleGothic, sans-serif;
+}
+#contentIframe {
+	margin-left: 10px;
+}

@@ -19,7 +19,7 @@ void Configs::init(wstring file)
     CIniReader iniReader(file);
     runMode = iniReader.ReadInteger(L"configs", L"runMode", 0);   
     removeChars = iniReader.ReadString(L"configs", L"removeChars", L"0123456789-");  
-    ignoreFolders = iniReader.ReadString(L"configs", L"ignoreFolders", L"");
+    ignoreFolders = iniReader.ReadString(L"configs", L"ignoreFolders", L"common");
     ignoreFiles = iniReader.ReadString(L"configs", L"ignoreFiles", L"index.html index.htm");
     fileTypes = iniReader.ReadString(L"configs", L"fileTypes", L" .html, .htm");
     blankFile = iniReader.ReadString(L"configs", L"blankFile", L"");

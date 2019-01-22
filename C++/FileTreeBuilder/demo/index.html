@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+	<head>
+		<title>Cubicost TRB Online Help Document</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="common/css/zTreeStyle/zTreeStyle.css" >
+		<link rel="stylesheet" type="text/css" href="common/css/common.css">
+        <link rel="stylesheet" type="text/css" href="common/css/tab.css">
+		<link rel="stylesheet" type="text/css" href="common/css/tipuesearch/normalize.css">
+		<link rel="stylesheet" type="text/css" href="common/css/tipuesearch/standard.css">
+		<link rel="stylesheet" type="text/css" href="common/css/tipuesearch/tipuesearch.css">
+		<script type="text/javascript" src="common/js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="common/js/jquery.ztree.core-3.5.js"></script>
+		<script type="text/javascript" src="setting.js"></script> 
+		<script type="text/javascript" src="common/js/tipuesearch/tipuesearch_set.js"></script>
+		<script type="text/javascript" src="common/js/tipuesearch/site.js"></script> 
+		<script type="text/javascript" src="common/js/tipuesearch/pages.js"></script>
+		<script type="text/javascript" src="common/js/tipuesearch/tipuesearch.js"></script>
+		<script type="text/javascript" src="common/js/tipuesearch/highlight.js"></script>
+		<script type="text/javascript" src="common/js/common.js"></script> 
+	</head>
+	<body>
+		<div ID="top" style = "background:url(common/img/tiao.png);">	
+			<div style="padding:6px"> 
+				<h1><Font color="#FFF"> File Tree Demo </Font></h1>
+			</div>
+		</div>	
+		<div>
+			<TABLE border="0" width="100%" height="100%" align="left">
+			<TR>
+				<TD width="20%" align="left" valign="top" style="BORDER-RIGHT:#87D3B7 2px solid">
+					<div class="tab">
+						<ul class="tabs">
+							<li><a href="#">Floder</a></li>
+							<li><a href="#">Search</a></li>
+						</ul> <!-- / tabs -->
+						<div class="tab_content">
+							<div class="tabs_item">
+								<ul id="tree" class="ztree" style="width:100%; overflow:auto;"></ul>
+							</div> <!-- / tabs_item -->
+							<div class="tabs_item">
+							    <div style="width:100%; overflow:auto;">
+								    <div id="progress">
+										<div id="container" style="display: none;"> 
+											<div id="bar" style="width:0%;"></div>
+										</div> 
+										<span id="total"></span>  
+								    </div>
+									<div class="tipue_search_right">
+									    <input type="text" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required placeholder="Please enter key words">
+										<input type="button" id="tipue_search_button" value="Search" />
+									</div>	
+								</div>
+								<div id="tipue_search_content"></div>
+							</div> <!-- / tabs_item -->	
+					</div>
+				</TD>
+				<TD width="80%" align=left valign=top>
+					<IFRAME ID="contentIframe" Name="contentIframe" FRAMEBORDER=0 scrolling="no" width="100%"  height="" SRC="" onload="loadReady()"></IFRAME>
+				</TD>
+			</TR>
+			</TABLE>
+		</div>
+	</body>
+</HTML>
+
