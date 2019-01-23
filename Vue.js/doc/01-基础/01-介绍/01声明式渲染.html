@@ -1,34 +1,21 @@
 <html>
 	<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+            <script src="../../common/js/jquery-1.4.4.min.js"></script>	
+            <script src="../../common/js/run.js"></script>			
 	</head>
 	<body>
-	
 		<form>
-			<textarea name="codearea" style="width:800px; height:600px">
-               <script src="../../common/js/vue.js"></script>
-			   
-			   <div id="app">
-				  {{ message }} 
-			   </div>
-
-               <script>
-					var app = new Vue({
-					  el: '#app',
-					  data: {
-						message: 'Hello Vue!'
-					  }
-					})
-				</script>
-			 
-			</textarea>
-			 
+			<textarea  id="code" style="width:600px; height:300px; text-align:left;">
+			</textarea> 
 			<br/>
-			<input name="run" type="button" value="运行代码"/>
+			<input code-id="code" result-id="result" onclick="run(this)" type="button" value="run"/>
 		</form>
-	
+	    <iframe id="result" style="width:400px; height:200px; text-align:left;"></iframe>
 	</body>
-	<script src="../../common/js/run.js"></script>    
+    <script>
+        binddata("code", "1.txt")		
+	</script>
 </html>
 
 
