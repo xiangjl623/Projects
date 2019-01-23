@@ -1,1 +1,1 @@
-var urlRoot = "http://www.cubicost.com/knowledge/TRB2018/3488/EN/";
+var urlRoot = "";

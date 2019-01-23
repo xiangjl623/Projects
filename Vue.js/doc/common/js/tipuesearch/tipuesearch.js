@@ -187,16 +187,20 @@ http://www.tipue.com/search
                                         {
                                              var pat = new RegExp(d_w[f], 'gi');
                                         }
+										
                                         if (tipuesearch_in.pages[i].title.search(pat) != -1)
                                         {
                                              var m_c = tipuesearch_in.pages[i].title.match(pat).length;
                                              score += (20 * m_c);
                                         }
+										
+										
                                         if (tipuesearch_in.pages[i].text.search(pat) != -1)
                                         {
                                              var m_c = tipuesearch_in.pages[i].text.match(pat).length;
                                              score += (20 * m_c);
                                         }
+										
                                         
 										/*
                                         if (tipuesearch_in.pages[i].tags.search(pat) != -1)
@@ -342,7 +346,7 @@ http://www.tipue.com/search
                                    if (l_o >= start && l_o < set.show + start)
                                    {    
                                         var titleUrl = found[i].url + '?keywords='  + $('#tipue_search_input').val();   
-										out += '<div class="tipue_search_content_title"><a href="' + titleUrl + '"' + tipue_search_w + '>' +  found[i].title + '</a></div>';
+										out += '<div class="tipue_search_content_title"><a href="' + "template.html?file=" + titleUrl + '"' + tipue_search_w + '>' +  found[i].title + '</a></div>';
                                         /*
                                         if (set.debug)
                                         {                                             

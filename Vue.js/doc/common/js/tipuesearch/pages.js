@@ -4,18 +4,28 @@ var tipuesearch_in = {
 
 function loadPage(aName, aFile){
 	var sUrl = urlRoot + aFile;
-	var sEncodeURL = encodeURI(sUrl);
-	$.get(sEncodeURL, function(html, status)							 
-	{    		
+	//var sEncodeURL = encodeURI(sUrl);
+	//$.get(sEncodeURL, function(html, status)							 
+	//{    		
+	//    alert(html);
+	//	tipuesearch_in.pages.push(
+	//	{   
+	//	   "title": aName,
+	//	   "text": html,
+	//	   "tags": "", //cont,
+	//	   "url": aFile
+	//	});    
+	//});  
+    $.get(sUrl, function(html) {
 		tipuesearch_in.pages.push(
 		{   
-		   //alert(aName);
 		   "title": aName,
 		   "text": html,
 		   "tags": "", //cont,
 		   "url": aFile
 		});    
-	});	
+	
+    }, 'text');   
 };
 
 function showProgressBar(percent){  
@@ -29,7 +39,10 @@ function loadPages() {
 	{    
 		//var percent = Math.round(100 * (i + 1) / zNodes.length);				
 		//showProgressBar(percent);	
-		loadPage(zNodes[i]["name"], zNodes[i]["file"]);
+		if (zNodes[i]["file"] != "")
+		{   
+			loadPage(zNodes[i]["name"], zNodes[i]["file"]);
+		}	 
 	};
 	//$('#progress').hide();
 };

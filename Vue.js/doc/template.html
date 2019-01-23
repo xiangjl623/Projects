@@ -1,0 +1,28 @@
+<html>
+	<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+            <script src="common/js/jquery-1.4.4.min.js"></script>	
+            <script src="common/js/run.js"></script>			
+	</head>
+	<body>
+		<form>
+			<textarea  id="code" style="width:600px; height:300px; text-align:left;">
+			</textarea> 
+			<br/>
+			<input code-id="code" result-id="result" onclick="run(this)" type="button" value="run"/>
+		</form>
+	    <iframe id="result" style="width:400px; height:200px; text-align:left;"></iframe>
+	</body>
+    <script>
+        var file = getURLParam('file');
+        binddata("code", file)		
+	</script>
+</html>
+
+
+
+
+
+
+
+ 

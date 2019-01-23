@@ -19,7 +19,14 @@ var setting = {
 	callback: {
 		beforeClick: function(treeId, treeNode) {
 			var zTree = $.fn.zTree.getZTreeObj("tree");
-			contentIframe.attr("src",treeNode.file);
+			if (treeNode.file != "")
+			{
+				contentIframe.attr("src", "template.html?file="+treeNode.file);
+			}
+			else
+			{
+				contentIframe.attr("src", "blank.html");
+			}
 			return true;
 		},
 		onClick: function(treeID, treeNode){
