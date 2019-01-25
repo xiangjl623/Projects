@@ -18,4 +18,17 @@ var zNodes =[
    { id:17,  pId:16,  name:"基础例子", file:"01-基础/03-计算属性和侦听器/01-计算/01基础例子.html"},
    { id:18,  pId:16,  name:"计算属性缓存 vs 方法", file:"01-基础/03-计算属性和侦听器/01-计算/02计算属性缓存 vs 方法.html"},
    { id:19,  pId:16,  name:"计算属性 vs 侦听属性", file:"01-基础/03-计算属性和侦听器/01-计算/03计算属性 vs 侦听属性.html"},
-   { id:20,  pId:16,  name:"计算属性的 setter", file:"01-基础/03-计算属性和侦听器/01-计算/04计算属性的 setter.html"}]
+   { id:20,  pId:16,  name:"计算属性的 setter", file:"01-基础/03-计算属性和侦听器/01-计算/04计算属性的 setter.html"},
+   { id:21,  pId:15,  name:"侦听器", file:""},
+   { id:22,  pId:21,  name:"侦听器", file:"01-基础/03-计算属性和侦听器/02-侦听器/01侦听器.html"},
+   { id:23,  pId:1,  name:"Class与Style绑定", file:""},
+   { id:24,  pId:23,  name:"绑定HTML Class", file:""},
+   { id:25,  pId:24,  name:"对象语法", file:"01-基础/04-Class与Style绑定/绑定HTML Class/01对象语法.html"},
+   { id:26,  pId:24,  name:"数组语法", file:"01-基础/04-Class与Style绑定/绑定HTML Class/02数组语法.html"},
+   { id:27,  pId:24,  name:"用在组件上", file:"01-基础/04-Class与Style绑定/绑定HTML Class/03用在组件上.html"},
+   { id:28,  pId:1,  name:"条件渲染", file:""},
+   { id:29,  pId:28,  name:"基本语法", file:"01-基础/05-条件渲染/01 基本语法.html"},
+   { id:30,  pId:28,  name:"在template使用条件渲染", file:"01-基础/05-条件渲染/02 在template使用条件渲染.html"},
+   { id:31,  pId:28,  name:"用key管理可复用的元素", file:"01-基础/05-条件渲染/03 用key管理可复用的元素.html"},
+   { id:32,  pId:28,  name:"v-show", file:"01-基础/05-条件渲染/04 v-show.html"},
+   { id:33,  pId:28,  name:"v-if vs v-show", file:"01-基础/05-条件渲染/05 v-if vs v-show.png"}]

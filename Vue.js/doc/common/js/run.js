@@ -28,6 +28,11 @@ function binddata(id, file)
    }, 'text');
 }
 
+function bindimage(id, file)
+{
+   $("#" + id).attr("src", file);
+}
+
 function getURLParam(name, url) {
 	if (!url) 
 	   url = location.href;

@@ -41,6 +41,11 @@ function loadPages() {
 		//showProgressBar(percent);	
 		if (zNodes[i]["file"] != "")
 		{   
+	        var ext = zNodes[i]["file"].split('.').pop().toLowerCase();
+			if (ext === "png" || ext === "jpg" || ext === "bmp" || ext === "svg")
+			{
+				continue;
+			}	
 			loadPage(zNodes[i]["name"], zNodes[i]["file"]);
 		}	 
 	};

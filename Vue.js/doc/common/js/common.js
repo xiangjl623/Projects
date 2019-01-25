@@ -20,11 +20,20 @@ var setting = {
 		beforeClick: function(treeId, treeNode) {
 			var zTree = $.fn.zTree.getZTreeObj("tree");
 			if (treeNode.file != "")
-			{
-				contentIframe.attr("src", "template.html?file="+treeNode.file);
+			{   
+		        var ext = treeNode.file.split('.').pop().toLowerCase();
+				if (ext === "html" || ext === "htm")
+				{
+					contentIframe.attr("src", "template.html?file="+treeNode.file);
+				}
+				else if (ext === "png" || ext === "jpg" || ext === "bmp" || ext === "svg")
+				{
+					contentIframe.attr("src", "template_image.html?file="+treeNode.file);
+				}				
 			}
 			else
-			{
+			{   
+		        
 				contentIframe.attr("src", "blank.html");
 			}
 			return true;
