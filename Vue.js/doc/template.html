@@ -2,12 +2,14 @@
 	<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
             <script src="common/js/jquery-1.4.4.min.js"></script>	
-            <script src="common/js/run.js"></script>			
+            <script src="common/js/run.js"></script>	
+            <script src="common/js/FileSaver.js"></script>				
 	</head>
 	<body>
 		<form>
 			<textarea  id="code" style="width:600px; height:480px; text-align:left;">
 			</textarea> 
+			<br/>
 			<br/>
 			<input code-id="code" result-id="result" onclick="run(this)" type="button" value="run"/>
 		</form>
@@ -15,8 +17,15 @@
 	</body>
     <script>
         var file = getURLParam('file');
-        binddata("code", file)		
+		if (file != "" && file != null)
+	    {
+		   binddata("code", file);
+		}
 	</script>
+	<br/>
+	<br/>
+	<label> File: <label><input id="file" type="text"/>
+	<input code-id="code" file-id="file" onclick="savecode(this)" type="button" value="save"/>
 </html>
 
 

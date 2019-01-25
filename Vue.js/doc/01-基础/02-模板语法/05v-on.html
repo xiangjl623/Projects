@@ -1,0 +1,18 @@
+<data>
+    <script src="../../common/js/vue.js"></script>
+    <div id="app">
+		<a v-on:click="dosomething">Click Me...</a>
+		<!-- 缩写 -->
+        <a @click="dosomething">Click Me...</a>
+	</div>
+	<script>
+	    var app = new Vue({
+		  el: '#app',
+		  methods:{
+		    dosomething:function(e){
+			  alert("Hello Vue.js");
+			}
+		  }
+		})
+	</script>
+</data>
