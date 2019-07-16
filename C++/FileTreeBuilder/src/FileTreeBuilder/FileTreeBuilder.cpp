@@ -107,18 +107,18 @@ void FileTreeBuilder::getAllFiles(wstring path, int pid, int ppid)
                 if ((configs.fileTypes.find(sSuffix) != -1) && (configs.ignoreFiles.find(sTrim) == -1))
                 {   
                     sTrim = trim(sTrim.substr(0, sTrim.find(sSuffix)));
-                    //if ((num == 0) && (sTrim == fileNodeVector[fileNodeVector.size() - 1]->name))
-                    //{
-                    //    fileNodeVector[fileNodeVector.size() - 1]->file = (path + L"/" + sName).substr(basePath.length() + 1);
-                    //}
-                    //else {
+                    if ((num == 0) && (sTrim == fileNodeVector[fileNodeVector.size() - 1]->name))
+                    {
+                        fileNodeVector[fileNodeVector.size() - 1]->file = (path + L"/" + sName).substr(basePath.length() + 1);
+                    }
+                    else {
                         FileNode* pNode = new FileNode(pid, configs.runMode == 0 ? index : GID, sTrim);
                         pNode->file = (path + L"/" + sName).substr(basePath.length() + 1);
                         wcout << L"******File******" << sName << endl;
                         fileNodeVector.push_back(pNode);
                         index++;
                         GID++;
-                    //};    
+                    };    
                     num++;
                 }     
             }
