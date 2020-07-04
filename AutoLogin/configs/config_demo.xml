@@ -1,0 +1,56 @@
+<config>
+    <browser>
+        <name>firefox</name>
+        <driverPath></driverPath>
+    </browser>
+    <user id = "1">
+        <username>***</username>
+        <password>***</password>
+        <action>
+            <type>URL</type>
+            <url>http://www.aiquanti.com/loginPage</url>
+        </action>
+        <action>
+            <type>value</type>
+            <by>name</by>
+            <value>account</value>
+            <key>***</key>
+        </action>
+        <action>
+            <type>value</type>
+            <by>name</by>
+            <value>password</value>
+            <key>***</key>
+        </action>
+        <action>
+            <type>button</type>
+            <by>id</by>
+            <value>login_submit</value>
+        </action>
+    </user>
+    <user id = "2">
+        <username>***</username>
+        <password>***</password>
+        <action>
+            <type>URL</type>
+            <url>http://www.aiquanti.com/loginPage</url>
+        </action>
+        <action>
+            <type>value</type>
+            <by>name</by>
+            <value>account</value>
+            <key>***</key>
+        </action>
+        <action>
+            <type>value</type>
+            <by>name</by>
+            <value>password</value>
+            <key>***</key>
+        </action>
+        <action>
+            <type>button</type>
+            <by>id</by>
+            <value>login_submit</value>
+        </action>
+    </user>
+</config>
