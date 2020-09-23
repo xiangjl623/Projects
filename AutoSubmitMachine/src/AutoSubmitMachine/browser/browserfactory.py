@@ -17,4 +17,4 @@ class BrowserFactory(object):
         elif browerType.lower() == BrowserType.chrome: # "chromedriver.exe PATH"
             return Browser(webdriver.Chrome(driverPath))
         elif browerType.lower() == BrowserType.firefox:
-            return Browser(webdriver.Firefox())
+            return Browser(webdriver.Firefox("C:\\Program Files\\Mozilla Firefox\\firefox.exe"))

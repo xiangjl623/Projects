@@ -3,13 +3,9 @@
 #https://github.com/tesseract-ocr
 import sys
 import os
-try:
-    from PIL import Image, ImageDraw, ImageFilter
-    from pyocr import pyocr
-except Exception, e:
-    print Exception , ":" , e
-    raise SystemExit
 
+from PIL import Image, ImageDraw, ImageFilter
+from pyocr import pyocr
 #二值判断,如果确认是噪声,用改点的上面一个点的灰度进行替换
 #该函数也可以改成RGB判断的,具体看需求如何
 def getPixel(image,x,y,G,N):
@@ -52,7 +48,6 @@ def getPixel(image,x,y,G,N):
 #  1：降噪失败
 def clearNoise(image,G,N,Z):
     draw = ImageDraw.Draw(image)
-
     for i in xrange(0,Z):
         for x in xrange(1,image.size[0] - 1):
             for y in xrange(1,image.size[1] - 1):
@@ -82,33 +77,25 @@ def remove_noise_by_pixel(img, column, line, pass_factor):
 
 #测试代码
 def main():
-    # #打开图片
-    # image = Image.open("d:/111.png")
-    # #将图片转换成灰度图片
-    # image = image.convert("L")
+    image = Image.open("d:/validate_code.png")
+    #将图片转换成灰度图片
+    image = image.convert("L")
     # #去噪,G = 50,N = 4,Z = 4
-    # clearNoise(image,50,4,4)
+    #clearNoise(image,50,4,4)
     # #保存图片
-    # image.save("d:/result.jpg")
-
-    img = Image.open("d:/222.jpg")
-    img = prepare_image(img)
-    img = remove_noise(img, 120)
-    img.save("d:/result.png")
+    image.save("d:/result.png")
     tools = pyocr.get_available_tools()[:]
     if len(tools) == 0:
         print("No OCR tool found")
         sys.exit(1)
     print("Using '%s'" % (tools[0].get_name()))
-    print  tools[0].get_version()
+    print(tools[0].get_version())
     print("Using '%s'" % (tools[0].get_available_languages()))
-    print tools[0].image_to_string(Image.open('d:/result.png'),lang='eng')
+    print(tools[0].image_to_string(Image.open('d:/result.png'), lang='eng'))
     #print tools[0].image_to_string(Image.open('D:/234.png'),lang='chi_sim')
 
 if __name__ == '__main__':
-    #()
-    import os
-    print os.listdir("e://")
+    main()
 
 
 
