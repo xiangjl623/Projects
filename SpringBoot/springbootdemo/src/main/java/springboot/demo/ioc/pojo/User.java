@@ -3,7 +3,7 @@ package springboot.demo.ioc.pojo;
 public class User {
     private Long id;
     private String userName;
-    private String node;
+    private String note;
 
     public Long getId() {
         return id;
@@ -21,11 +21,11 @@ public class User {
         this.userName = userName;
     }
 
-    public String getNode() {
-        return node;
+    public String getNote() {
+        return note;
     }
 
-    public void setNode(String node) {
-        this.node = node;
+    public void setNote(String note) {
+        this.note = note;
     }
 }

@@ -10,8 +10,8 @@ public class AppConfig {
     public User initUser() {
         User user = new User();
         user.setId(1L);
-        user.setUserName("user_name_1");
-        user.setNode("note_1");
+        user.setUserName("user_name");
+        user.setNote("note");
         return user;
     }
 }
